@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application Logo="logoCD" Company="Cámara de Diputados" Title="Sistema de Prestaciones Sindicales">
+  <SchemaModules>
+    <SchemaModule Name="SchedulerAspNetModule" Version="21.2.7.0" IsNewNode="True" />
+    <SchemaModule Name="SchedulerModuleBase" Version="21.2.7.0" IsNewNode="True" />
+    <SchemaModule Name="SystemAspNetModule" Version="21.2.7.0" IsNewNode="True" />
+    <SchemaModule Name="SystemModule" Version="21.2.7.0" IsNewNode="True" />
+  </SchemaModules>
+</Application>

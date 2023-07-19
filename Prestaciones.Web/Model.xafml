@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application>
+  <BOModel>
+    <Class Name="Prestaciones.Module.BusinessObjects.Empleado">
+      <OwnMembers>
+        <Member Name="NumeroEmpleado" Index="0" />
+        <Member Name="Nombre" Index="1" />
+        <Member Name="PrimerApellido" Index="2" />
+        <Member Name="RegistroPrestacionEmpleados" Index="3" />
+        <Member Name="SegundoApellido" Index="4" />
+      </OwnMembers>
+    </Class>
+    <Class Name="Prestaciones.Module.BusinessObjects.RegistroPrestacionEmpleado">
+      <OwnMembers>
+        <Member Name="CatalogoPrestacion" Index="0" />
+        <Member Name="Empleado" LookupProperty="NumeroEmpleado" Index="1" />
+        <Member Name="Fecha" Index="2" />
+        <Member Name="Monto" DisplayFormat="{0:#,###,##0.##############################}" Index="3" />
+        <Member Name="Comprobado" Index="4" />
+      </OwnMembers>
+    </Class>
+  </BOModel>
+  <NavigationItems>
+    <Items>
+      <Item Id="Administracion" Caption="ADMINISTRACIÓN" IsNewNode="True" />
+      <Item Id="Catalogos" Caption="CATALOGOS" IsNewNode="True">
+        <Items IsNewNode="True">
+          <Item Id="CatalogoDocumento_ListView" ViewId="CatalogoDocumento_ListView" ObjectKey="" IsNewNode="True" />
+          <Item Id="CatalogoPrestacion_ListView" ViewId="CatalogoPrestacion_ListView" ObjectKey="" IsNewNode="True" />
+        </Items>
+      </Item>
+      <Item Id="Default">
+        <Items>
+          <Item Id="CatalogoDocumento_ListView" Removed="True" />
+          <Item Id="CatalogoPrestacion_ListView" Removed="True" />
+          <Item Id="Empleado_ListView" Visible="False" Removed="True" />
+          <Item Id="RegistroPrestacionEmpleado_ListView" Removed="True" />
+        </Items>
+      </Item>
+      <Item Id="KPI" Visible="False" />
+      <Item Id="Registros" Caption="REGISTROS" IsNewNode="True">
+        <Items IsNewNode="True">
+          <Item Id="Empleado_ListView" ViewId="Empleado_ListView" ObjectKey="" Visible="True" IsNewNode="True" />
+          <Item Id="RegistroPrestacionEmpleado_ListView" ViewId="RegistroPrestacionEmpleado_ListView" ObjectKey="" IsNewNode="True" />
+        </Items>
+      </Item>
+      <Item Id="Reports" Caption="REPORTES" />
+      <Item Id="State Machine" Visible="False" />
+    </Items>
+  </NavigationItems>
+  <SchemaModules>
+    <SchemaModule Name="SchedulerAspNetModule" Version="21.2.7.0" IsNewNode="True" />
+    <SchemaModule Name="SchedulerModuleBase" Version="21.2.7.0" IsNewNode="True" />
+    <SchemaModule Name="SystemAspNetModule" Version="21.2.7.0" IsNewNode="True" />
+    <SchemaModule Name="SystemModule" Version="21.2.7.0" IsNewNode="True" />
+  </SchemaModules>
+</Application>

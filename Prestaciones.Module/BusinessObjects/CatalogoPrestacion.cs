@@ -15,6 +15,7 @@ using System.Text;
 namespace Prestaciones.Module.BusinessObjects
 {
     [DefaultClassOptions]
+    [DefaultProperty(nameof(Nombre))]
     //[ImageName("BO_Contact")]
     //[DefaultProperty("DisplayMemberNameForLookupEditorsOfThisType")]
     //[DefaultListViewOptions(MasterDetailMode.ListViewOnly, false, NewItemRowPosition.None)]

@@ -34,53 +34,48 @@ namespace Prestaciones.Module.BusinessObjects
             // Place your initialization code here (https://documentation.devexpress.com/eXpressAppFramework/CustomDocument112834.aspx).
         }
 
-        string segundoApellido;
-        string primerApellido;
-        string nombre;
-        string numeroEmpleado;
-
+        private string _NumeroEmpleado;
         [RuleRequiredField]
         [Size(SizeAttribute.DefaultStringMappingFieldSize)]
         public string NumeroEmpleado
         {
-            get => numeroEmpleado;
-            set => SetPropertyValue(nameof(NumeroEmpleado), ref numeroEmpleado, value);
+            get => _NumeroEmpleado;
+            set => SetPropertyValue(nameof(NumeroEmpleado), ref _NumeroEmpleado, value);
         }
 
+        private string _Nombre;
         [RuleRequiredField]
         [Size(SizeAttribute.DefaultStringMappingFieldSize)]
         public string Nombre
         {
-            get => nombre;
-            set => SetPropertyValue(nameof(Nombre), ref nombre, value);
+            get => _Nombre;
+            set => SetPropertyValue(nameof(Nombre), ref _Nombre, value);
         }
 
-
+        private string _PrimerApellido;
         [RuleRequiredField]
         [Size(SizeAttribute.DefaultStringMappingFieldSize)]
         public string PrimerApellido
         {
-            get => primerApellido;
-            set => SetPropertyValue(nameof(PrimerApellido), ref primerApellido, value);
+            get => _PrimerApellido;
+            set => SetPropertyValue(nameof(PrimerApellido), ref _PrimerApellido, value);
         }
 
-
+        private string _SegundoApellido;
         [RuleRequiredField]
         [Size(SizeAttribute.DefaultStringMappingFieldSize)]
         public string SegundoApellido
         {
-            get => segundoApellido;
-            set => SetPropertyValue(nameof(SegundoApellido), ref segundoApellido, value);
+            get => _SegundoApellido;
+            set => SetPropertyValue(nameof(SegundoApellido), ref _SegundoApellido, value);
         }
 
-
-
-        [Association("Empleado-RegistroPrestacionEmpleados")]
-        public XPCollection<RegistroPrestacionEmpleado> RegistroPrestacionEmpleados
+        [Association("Empleado-Registro")]
+        public XPCollection<Registro> Registro
         {
             get
             {
-                return GetCollection<RegistroPrestacionEmpleado>(nameof(RegistroPrestacionEmpleados));
+                return GetCollection<Registro>(nameof(Registro));
             }
         }
 

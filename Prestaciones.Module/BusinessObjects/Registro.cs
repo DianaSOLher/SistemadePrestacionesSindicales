@@ -15,17 +15,16 @@ using System.Text;
 namespace Prestaciones.Module.BusinessObjects
 {
     [DefaultClassOptions]
-    [DefaultProperty(nameof(Nombre))]
     //[ImageName("BO_Contact")]
     //[DefaultProperty("DisplayMemberNameForLookupEditorsOfThisType")]
     //[DefaultListViewOptions(MasterDetailMode.ListViewOnly, false, NewItemRowPosition.None)]
     //[Persistent("DatabaseTableName")]
     // Specify more UI options using a declarative approach (https://documentation.devexpress.com/#eXpressAppFramework/CustomDocument112701).
-    public class CatalogoDocumento : BaseObject
+    public class Registro : BaseObject
     { // Inherit from a different class to provide a custom primary key, concurrency and deletion behavior, etc. (https://documentation.devexpress.com/eXpressAppFramework/CustomDocument113146.aspx).
         // Use CodeRush to create XPO classes and properties with a few keystrokes.
         // https://docs.devexpress.com/CodeRushForRoslyn/118557
-        public CatalogoDocumento(Session session)
+        public Registro(Session session)
             : base(session)
         {
         }
@@ -35,27 +34,43 @@ namespace Prestaciones.Module.BusinessObjects
             // Place your initialization code here (https://documentation.devexpress.com/eXpressAppFramework/CustomDocument112834.aspx).
         }
 
-
-
-        string nombre;
-
-
-
         [RuleRequiredField]
-        [Size(SizeAttribute.DefaultStringMappingFieldSize)]
-        public string Nombre
+        [Association("Prestacion-Registro")]
+        public Prestacion Prestacion
         {
-            get => nombre;
-            set => SetPropertyValue(nameof(Nombre), ref nombre, value);
+            get => fPrestacion;
+            set => SetPropertyValue(nameof(Prestacion), ref fPrestacion, value);
+        }
+        Prestacion fPrestacion;
+
+        private Empleado _Empleado;
+        [RuleRequiredField]
+        [Association("Empleado-Registro")]
+        public Empleado Empleado
+        {
+            get => _Empleado;
+            set => SetPropertyValue(nameof(Empleado), ref _Empleado, value);
         }
 
-        [Association("CatalogoDocumento-CatalogoPrestaciones")]
-        public XPCollection<CatalogoPrestacion> CatalogoPrestaciones
+        private double _Monto;
+        public double Monto
         {
-            get
-            {
-                return GetCollection<CatalogoPrestacion>(nameof(CatalogoPrestaciones));
-            }
+            get => _Monto;
+            set => SetPropertyValue(nameof(Monto), ref _Monto, value);
+        }
+
+        private bool _Comprobado;
+        public bool Comprobado
+        {
+            get => _Comprobado;
+            set => SetPropertyValue(nameof(Comprobado), ref _Comprobado, value);
+        }
+
+        private DateTime _Fecha;
+        public DateTime Fecha
+        {
+            get => _Fecha;
+            set => SetPropertyValue(nameof(Fecha), ref _Fecha, value);
         }
 
     }

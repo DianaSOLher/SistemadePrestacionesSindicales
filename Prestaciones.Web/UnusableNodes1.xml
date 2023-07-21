@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application>
+  <NavigationItems Id="NavigationItems">
+    <Items Id="Items">
+      <Item Id="Registros">
+        <Items Id="Items">
+          <Item Id="RegistroPrestacionEmpleado_ListView" ViewId="RegistroPrestacionEmpleado_ListView" />
+        </Items>
+      </Item>
+      <Item Id="Catalogos">
+        <Items Id="Items">
+          <Item Id="CatalogoPrestacion_ListView" ViewId="CatalogoPrestacion_ListView" />
+          <Item Id="CatalogoDocumento_ListView" ViewId="CatalogoDocumento_ListView" />
+        </Items>
+      </Item>
+      <Item Id="Administracion">
+        <Items Id="Items">
+          <Item Id="Catalogos">
+            <Items Id="Items">
+              <Item Id="CatalogoPrestacion_ListView" ViewId="CatalogoPrestacion_ListView" />
+              <Item Id="CatalogoDocumento_ListView" ViewId="CatalogoDocumento_ListView" />
+            </Items>
+          </Item>
+        </Items>
+      </Item>
+    </Items>
+  </NavigationItems>
+</Application>

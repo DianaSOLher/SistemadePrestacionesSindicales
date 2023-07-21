@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application>
+  <BOModel Id="BOModel">
+    <Class Name="Prestaciones.Module.BusinessObjects.RegistroPrestacionEmpleado">
+      <OwnMembers Id="OwnMembers">
+        <Member Name="CatalogoPrestacion" Index="0" />
+        <Member Name="Empleado" LookupProperty="NumeroEmpleado" Index="1" />
+        <Member Name="Fecha" Index="2" />
+        <Member Name="Monto" DisplayFormat="{0:#,###,##0.##############################}" Index="3" />
+        <Member Name="Comprobado" Index="4" />
+      </OwnMembers>
+    </Class>
+    <Class Name="Prestaciones.Module.BusinessObjects.Empleado">
+      <OwnMembers Id="OwnMembers">
+        <Member Name="RegistroPrestacionEmpleados" Index="3" />
+      </OwnMembers>
+    </Class>
+  </BOModel>
+  <NavigationItems Id="NavigationItems">
+    <Items Id="Items">
+      <Item Id="Registros">
+        <Items Id="Items">
+          <Item Id="RegistroPrestacionEmpleado_ListView" ViewId="RegistroPrestacionEmpleado_ListView" />
+        </Items>
+      </Item>
+      <Item Id="Catalogos">
+        <Items Id="Items">
+          <Item Id="CatalogoPrestacion_ListView" ViewId="CatalogoPrestacion_ListView" />
+          <Item Id="CatalogoDocumento_ListView" ViewId="CatalogoDocumento_ListView" />
+        </Items>
+      </Item>
+      <Item Id="Default">
+        <Items Id="Items">
+          <Item Id="CatalogoDocumento_ListView" Removed="True" />
+          <Item Id="CatalogoPrestacion_ListView" Removed="True" />
+          <Item Id="RegistroPrestacionEmpleado_ListView" Removed="True" />
+        </Items>
+      </Item>
+    </Items>
+  </NavigationItems>
+</Application>

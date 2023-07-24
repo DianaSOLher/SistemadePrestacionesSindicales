@@ -32,6 +32,8 @@ namespace Prestaciones.Module.BusinessObjects
         }
         public override void AfterConstruction()
         {
+
+
             base.AfterConstruction();
             // Place your initialization code here (https://documentation.devexpress.com/eXpressAppFramework/CustomDocument112834.aspx).
         }
@@ -61,6 +63,23 @@ namespace Prestaciones.Module.BusinessObjects
             set => SetPropertyValue(nameof(Numeral), ref _Numeral, value);
         }
 
+        private string _Year;
+        [RuleRequiredField]
+        [XafDisplayName("Año"), Size(4)]
+        public string Year
+        {
+            get => _Year;
+            set => SetPropertyValue(nameof(Year), ref _Year, value);
+        }
+
+        private EnumMonths _Mes;
+        [RuleRequiredField]
+        public EnumMonths Mes
+        {
+            get => _Mes;
+            set => SetPropertyValue(nameof(Mes), ref _Mes, value);
+        }
+
         [RuleRequiredField]
         [Association("Documento-Prestacion")]
         public Documento Documento
@@ -82,4 +101,20 @@ namespace Prestaciones.Module.BusinessObjects
         }
 
     }
+
+    public enum EnumMonths
+    {
+        Enero,
+        Febrero,
+        Marzo,
+        Abril,
+        Mayo,
+        Junio,
+        Julio,
+        Agosto,
+        Septiembre,
+        Octubre,
+        Noviembre,
+        Diciembre
+    } 
 }

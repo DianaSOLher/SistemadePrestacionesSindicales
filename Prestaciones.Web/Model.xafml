@@ -22,7 +22,7 @@
         <Items IsNewNode="True">
           <Item Id="Documento_ListView" ViewId="Documento_ListView" ObjectKey="" IsNewNode="True" />
           <Item Id="Prestacion_ListView" ViewId="Prestacion_ListView" ObjectKey="" Visible="True" IsNewNode="True" />
-          <Item Id="Registro_ListView" ViewId="Registro_ListView" ObjectKey="" Visible="False" IsNewNode="True" />
+          <Item Id="Registro_ListView" ViewId="Registro_ListView" ObjectKey="" Visible="True" IsNewNode="True" />
         </Items>
       </Item>
       <Item Id="Default" Caption="Catálogo">
@@ -38,7 +38,7 @@
         </Items>
       </Item>
       <Item Id="KPI" Visible="False" />
-      <Item Id="Registros" Caption="REGISTROS" Visible="False" IsNewNode="True">
+      <Item Id="Registros" Caption="REGISTROS" Visible="True" IsNewNode="True">
         <Items IsNewNode="True">
           <Item Id="Empleado_ListView" ViewId="Empleado_ListView" ObjectKey="" Visible="True" IsNewNode="True" />
           <Item Id="RegistroPrestacionEmpleado_ListView" ViewId="RegistroPrestacionEmpleado_ListView" ObjectKey="" IsNewNode="True" />

@@ -34,24 +34,9 @@ namespace Prestaciones.Module.BusinessObjects
             // Place your initialization code here (https://documentation.devexpress.com/eXpressAppFramework/CustomDocument112834.aspx).
         }
 
-        [RuleRequiredField]
-        [Association("Prestacion-Registro")]
-        public Prestacion Prestacion
-        {
-            get => fPrestacion;
-            set => SetPropertyValue(nameof(Prestacion), ref fPrestacion, value);
-        }
-        Prestacion fPrestacion;
 
-        private Empleado _Empleado;
-        [RuleRequiredField]
-        [Association("Empleado-Registro")]
-        public Empleado Empleado
-        {
-            get => _Empleado;
-            set => SetPropertyValue(nameof(Empleado), ref _Empleado, value);
-        }
-
+        Prestacion prestacion;
+        DateTime fechaCreacion;
         private double _Monto;
         public double Monto
         {
@@ -66,11 +51,18 @@ namespace Prestaciones.Module.BusinessObjects
             set => SetPropertyValue(nameof(Comprobado), ref _Comprobado, value);
         }
 
-        private DateTime _Fecha;
-        public DateTime Fecha
+        public DateTime FechaCreacion
         {
-            get => _Fecha;
-            set => SetPropertyValue(nameof(Fecha), ref _Fecha, value);
+            get => fechaCreacion;
+            set => SetPropertyValue(nameof(FechaCreacion), ref fechaCreacion, value);
+        }
+
+        
+        [Association("Prestacion-Registro")]
+        public Prestacion Prestacion
+        {
+            get => prestacion;
+            set => SetPropertyValue(nameof(Prestacion), ref prestacion, value);
         }
 
     }

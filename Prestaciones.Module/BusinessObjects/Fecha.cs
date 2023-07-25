@@ -15,16 +15,17 @@ using System.Text;
 namespace Prestaciones.Module.BusinessObjects
 {
     [DefaultClassOptions]
+    //[DefaultProperty(nameof())]
     //[ImageName("BO_Contact")]
-    [DefaultProperty(nameof(NumeroEmpleado))]
+    //[DefaultProperty("DisplayMemberNameForLookupEditorsOfThisType")]
     //[DefaultListViewOptions(MasterDetailMode.ListViewOnly, false, NewItemRowPosition.None)]
     //[Persistent("DatabaseTableName")]
     // Specify more UI options using a declarative approach (https://documentation.devexpress.com/#eXpressAppFramework/CustomDocument112701).
-    public class Empleado : BaseObject
+    public class Fecha : BaseObject
     { // Inherit from a different class to provide a custom primary key, concurrency and deletion behavior, etc. (https://documentation.devexpress.com/eXpressAppFramework/CustomDocument113146.aspx).
         // Use CodeRush to create XPO classes and properties with a few keystrokes.
         // https://docs.devexpress.com/CodeRushForRoslyn/118557
-        public Empleado(Session session)
+        public Fecha(Session session)
             : base(session)
         {
         }
@@ -34,42 +35,48 @@ namespace Prestaciones.Module.BusinessObjects
             // Place your initialization code here (https://documentation.devexpress.com/eXpressAppFramework/CustomDocument112834.aspx).
         }
 
-        private string _NumeroEmpleado;
-        [RuleRequiredField]
-        [Size(SizeAttribute.DefaultStringMappingFieldSize)]
-        public string NumeroEmpleado
+
+        string anio;
+        EnumMes mes;
+
+        public EnumMes Mes
         {
-            get => _NumeroEmpleado;
-            set => SetPropertyValue(nameof(NumeroEmpleado), ref _NumeroEmpleado, value);
+            get => mes;
+            set => SetPropertyValue(nameof(Mes), ref mes, value);
         }
 
-        private string _Nombre;
-        [RuleRequiredField]
-        [Size(SizeAttribute.DefaultStringMappingFieldSize)]
-        public string Nombre
+        
+        [Size(4)]
+        [XafDisplayName("Año")]
+        public string Anio
         {
-            get => _Nombre;
-            set => SetPropertyValue(nameof(Nombre), ref _Nombre, value);
+            get => anio;
+            set => SetPropertyValue(nameof(Anio), ref anio, value);
         }
 
-        private string _PrimerApellido;
-        [RuleRequiredField]
-        [Size(SizeAttribute.DefaultStringMappingFieldSize)]
-        public string PrimerApellido
+        [Association("Fecha-Archivo")]
+        public XPCollection<Archivo> Archivo
         {
-            get => _PrimerApellido;
-            set => SetPropertyValue(nameof(PrimerApellido), ref _PrimerApellido, value);
+            get
+            {
+                return GetCollection<Archivo>(nameof(Archivo));
+            }
         }
+    }
 
-        private string _SegundoApellido;
-        [RuleRequiredField]
-        [Size(SizeAttribute.DefaultStringMappingFieldSize)]
-        public string SegundoApellido
-        {
-            get => _SegundoApellido;
-            set => SetPropertyValue(nameof(SegundoApellido), ref _SegundoApellido, value);
-        }
-
-
+    public enum EnumMes
+    {
+        Enero = 0,
+        Febrero = 1,
+        Marzo = 2,
+        Abril = 3,
+        Mayo = 4,
+        Junio = 5,
+        Julio = 6,
+        Agosto = 7,
+        Septiembre = 8,
+        Octubre = 9,
+        Noviembre = 10,
+        Diciembre = 11
     }
 }

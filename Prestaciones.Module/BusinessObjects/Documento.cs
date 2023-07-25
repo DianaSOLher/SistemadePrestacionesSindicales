@@ -35,7 +35,9 @@ namespace Prestaciones.Module.BusinessObjects
             // Place your initialization code here (https://documentation.devexpress.com/eXpressAppFramework/CustomDocument112834.aspx).
         }
 
+        Prestacion prestacion;
         private string _Nombre;
+
         [RuleRequiredField]
         [Size(SizeAttribute.DefaultStringMappingFieldSize)]
         public string Nombre
@@ -61,14 +63,12 @@ namespace Prestaciones.Module.BusinessObjects
             set => SetPropertyValue(nameof(Archivo), ref _Archivo, value);
         }
 
-        [Association("Documento-Prestacion")]
-        public XPCollection<Prestacion> Prestacion
+        
+        [Association("Prestacion-Documento")]
+        public Prestacion Prestacion
         {
-            get
-            {
-                return GetCollection<Prestacion>(nameof(Prestacion));
-            }
+            get => prestacion;
+            set => SetPropertyValue(nameof(Prestacion), ref prestacion, value);
         }
-
     }
 }
